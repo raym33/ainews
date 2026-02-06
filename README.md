@@ -62,6 +62,9 @@ Core product behavior:
                                                 -> [rewrite_feed.py] (legacy normalization)
 ```
 
+Detailed operating guidance (performance, multi-node routing, model stack, and API connectors):
+1. `docs/OPERATIONS_AND_MODELS.md`
+
 ### Main components
 1. `newsroom/ai_publisher.py`
    - Main generation pipeline.
