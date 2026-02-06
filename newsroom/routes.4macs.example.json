@@ -1,27 +1,27 @@
 {
   "routes": {
     "chief": {
-      "base_url": "http://10.211.0.241:1234/v1",
+      "base_url": "http://<worker-a-host>:1234/v1",
       "model": "qwen/qwen3-8b",
       "timeout_sec": 90
     },
     "research": {
-      "base_url": "http://10.211.0.242:1234/v1",
+      "base_url": "http://<worker-b-host>:1234/v1",
       "model": "mistralai/ministral-3-3b",
       "timeout_sec": 90
     },
     "fact": {
-      "base_url": "http://10.211.0.243:1234/v1",
+      "base_url": "http://<worker-c-host>:1234/v1",
       "model": "inference-net.schematron-3b",
       "timeout_sec": 90
     },
     "tagger": {
-      "base_url": "http://10.211.0.244:1234/v1",
+      "base_url": "http://<worker-d-host>:1234/v1",
       "model": "liquid/lfm2.5-1.2b",
       "timeout_sec": 60
     },
     "embedding": {
-      "base_url": "http://10.211.0.244:1234/v1",
+      "base_url": "http://<worker-d-host>:1234/v1",
       "model": "text-embedding-qwen3-embedding-8b",
       "timeout_sec": 60
     }

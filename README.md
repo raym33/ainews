@@ -150,3 +150,8 @@ For investor diligence, the system is inspectable end-to-end: generation logic, 
 
 ## License
 Private/proprietary by default. Add a formal license before public commercial distribution.
+
+## Privacy hygiene
+1. This repository intentionally excludes local machine paths and private network addresses.
+2. Runtime data files in `web/data/` are sample payloads and do not contain infrastructure endpoints.
+3. Fill your own local settings in non-versioned files such as `newsroom/config.json` and `newsroom/github-sync.env`.

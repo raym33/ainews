@@ -57,7 +57,7 @@ def list_targets(args):
 
 def fetch_models(ip, port, timeout):
   url = f"http://{ip}:{port}/v1/models"
-  req = urllib.request.Request(url, headers={"User-Agent": "LaAuroraAutoConfig/1.0"})
+  req = urllib.request.Request(url, headers={"User-Agent": "MetropolisAutoConfig/1.0"})
   try:
     with urllib.request.urlopen(req, timeout=timeout) as resp:
       data = json.loads(resp.read().decode("utf-8", "ignore"))

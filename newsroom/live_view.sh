@@ -3,7 +3,7 @@ set -euo pipefail
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_DIR="$BASE_DIR/logs"
-FEED_PATH="/Users/c/Library/LaAurora/web/data/articles.json"
+FEED_PATH="${FEED_PATH:-$(cd "$BASE_DIR/../web/data" && pwd)/articles.json}"
 PUBLISHER_LABEL="com.la-aurora.publisher"
 
 print_status() {
@@ -25,14 +25,15 @@ print_status() {
 }
 
 print_json_snapshots() {
-  /usr/bin/python3 - <<'PY'
+  FEED_PATH_ENV="$FEED_PATH" LOG_DIR_ENV="$LOG_DIR" /usr/bin/python3 - <<'PY'
 import json
 import os
 import re
 
-feed_path = "/Users/c/Library/LaAurora/web/data/articles.json"
-rewrite_state = "/Users/c/Library/LaAurora/newsroom/logs/rewrite.state.json"
-health_path = "/Users/c/Library/LaAurora/newsroom/logs/health.json"
+feed_path = os.environ.get("FEED_PATH_ENV", "")
+log_dir = os.environ.get("LOG_DIR_ENV", "")
+rewrite_state = os.path.join(log_dir, "rewrite.state.json")
+health_path = os.path.join(log_dir, "health.json")
 
 def load(path, default):
   if not os.path.exists(path):

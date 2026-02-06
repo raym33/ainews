@@ -7,15 +7,15 @@
     <key>ProgramArguments</key>
     <array>
       <string>/bin/bash</string>
-      <string>/Users/c/Library/LaAurora/newsroom/daemon.sh</string>
+      <string>__PROJECT_ROOT__/newsroom/daemon.sh</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/Users/c/Library/LaAurora/newsroom/logs/launchd.out.log</string>
+    <string>__PROJECT_ROOT__/newsroom/logs/launchd.out.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/c/Library/LaAurora/newsroom/logs/launchd.err.log</string>
+    <string>__PROJECT_ROOT__/newsroom/logs/launchd.err.log</string>
   </dict>
 </plist>

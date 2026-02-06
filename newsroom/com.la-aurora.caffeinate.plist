@@ -14,8 +14,8 @@
     <key>KeepAlive</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/Users/c/Library/LaAurora/newsroom/logs/caffeinate.out.log</string>
+    <string>__PROJECT_ROOT__/newsroom/logs/caffeinate.out.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/c/Library/LaAurora/newsroom/logs/caffeinate.err.log</string>
+    <string>__PROJECT_ROOT__/newsroom/logs/caffeinate.err.log</string>
   </dict>
 </plist>

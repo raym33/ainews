@@ -1,6 +1,6 @@
 {
   "lmstudio": {
-    "base_url": "http://10.211.0.240:1234/v1",
+    "base_url": "http://127.0.0.1:1234/v1",
     "timeout_sec": 90
   },
   "models": {
@@ -12,22 +12,22 @@
   },
   "routes": {
     "chief": {
-      "base_url": "http://10.211.0.240:1234/v1",
+      "base_url": "http://127.0.0.1:1234/v1",
       "model": "openai/gpt-oss-20b",
       "timeout_sec": 90
     },
     "research": {
-      "base_url": "http://10.211.0.240:1234/v1",
+      "base_url": "http://127.0.0.1:1234/v1",
       "model": "openai/gpt-oss-20b",
       "timeout_sec": 90
     },
     "fact": {
-      "base_url": "http://192.168.100.50:1234/v1",
+      "base_url": "http://127.0.0.1:1234/v1",
       "model": "mistralai/ministral-3-14b-reasoning",
       "timeout_sec": 60
     },
     "tagger": {
-      "base_url": "http://10.211.0.240:1234/v1",
+      "base_url": "http://127.0.0.1:1234/v1",
       "model": "openai/gpt-oss-20b",
       "timeout_sec": 90
     }
@@ -49,7 +49,7 @@
   },
   "pipeline_max_sec": 260,
   "quarantine_seconds": 900,
-  "quarantine_file": "/Users/c/Library/LaAurora/newsroom/logs/route_quarantine.json",
+  "quarantine_file": "./logs/route_quarantine.json",
   "rss_feeds": {
     "spain": [
       "https://www.abc.es/rss/feeds/abcPortada.xml",

@@ -13,7 +13,7 @@ import xml.etree.ElementTree as ET
 
 DEFAULT_CONFIG = {
   "lmstudio": {
-    "base_url": "http://10.211.0.240:1234/v1",
+    "base_url": "http://127.0.0.1:1234/v1",
     "timeout_sec": 60
   },
   "models": {
@@ -38,7 +38,7 @@ DEFAULT_CONFIG = {
   }
 }
 
-USER_AGENT = "NewsroomBot/1.0 (+https://example.local)"
+USER_AGENT = "NewsroomBot/1.0 (+https://example.com)"
 
 
 def load_config(path):

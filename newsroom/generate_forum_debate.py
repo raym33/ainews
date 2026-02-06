@@ -12,9 +12,9 @@ import urllib.request
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_CONFIG = os.path.join(BASE_DIR, "config.json")
-DEFAULT_OUTPUT = "/Users/c/Library/LaAurora/web/data/forum.json"
+DEFAULT_OUTPUT = os.path.abspath(os.path.join(BASE_DIR, "..", "web", "data", "forum.json"))
 MAX_CALL_TIMEOUT_SEC = 24
-AGENTBOOK_DEBATE_SOURCE = "/Users/c/Documents/codex/agentbook-repo/examples/investment-analyst/app/agents/runner.py"
+AGENTBOOK_DEBATE_SOURCE = os.environ.get("AGENTBOOK_TOPIC_SOURCE", "")
 
 
 def utc_now_iso():
@@ -253,6 +253,13 @@ def short_preview(text, max_chars=240):
   return value[: max_chars - 1].rstrip() + "…"
 
 
+def sanitize_node_label(route):
+  model = sanitize(route.get("model", ""))
+  if not model:
+    return "worker"
+  return "worker"
+
+
 def generate_thread(cfg, topic):
   personas = {
     "chief": "Editorial strategist: balance philosophy, neuroscience and engineering tradeoffs.",
@@ -293,7 +300,7 @@ def generate_thread(cfg, topic):
       "round": 1,
       "message": text,
       "model": route["model"],
-      "node": route["base_url"]
+      "node": sanitize_node_label(route)
     }
 
   round1_entries = {}
@@ -310,7 +317,7 @@ def generate_thread(cfg, topic):
           "round": 1,
           "message": fallback_message(role, round_no=1),
           "model": "system_fallback",
-          "node": "local"
+          "node": "worker"
         }
   for role in role_order:
     thread.append(round1_entries[role])
@@ -344,7 +351,7 @@ def generate_thread(cfg, topic):
       "round": 2,
       "message": text,
       "model": route["model"],
-      "node": route["base_url"]
+      "node": sanitize_node_label(route)
     }
 
   round2_entries = {}
@@ -361,7 +368,7 @@ def generate_thread(cfg, topic):
           "round": 2,
           "message": fallback_message(role, round_no=2),
           "model": "system_fallback",
-          "node": "local"
+          "node": "worker"
         }
   for role in role_order:
     thread.append(round2_entries[role])
@@ -399,7 +406,7 @@ def generate_thread(cfg, topic):
     "thread": thread,
     "summary": summary_text,
     "summary_model": summary_route["model"],
-    "summary_node": summary_route["base_url"]
+    "summary_node": "worker"
   }
 
 
@@ -435,7 +442,7 @@ def main():
 
   forum_payload = generate_thread(cfg, topic)
   forum_payload["framework"] = "agentbook-style"
-  forum_payload["agentbook_topic_source"] = args.agentbook_source
+  forum_payload["agentbook_topic_source"] = "configured" if args.agentbook_source else "none"
   forum_payload["agentbook_topic_catalog_size"] = len(agentbook_topics)
   atomic_write_json(args.output, forum_payload)
   print(f"OK: {args.output}")

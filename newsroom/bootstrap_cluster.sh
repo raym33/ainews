@@ -21,11 +21,11 @@ python3 "$BASE_DIR/auto_configure_cluster.py" "${AUTO_ARGS[@]}"
 bash "$BASE_DIR/check_lm_cluster.sh" "$CONFIG"
 
 # Reinicio limpio del pipeline para aplicar rutas nuevas inmediatamente.
-pkill -f "/Users/c/Library/LaAurora/newsroom/runner.py --config $CONFIG" >/dev/null 2>&1 || true
-pkill -f "/Users/c/Library/LaAurora/newsroom/ai_publisher.py --config $CONFIG" >/dev/null 2>&1 || true
+pkill -f "$BASE_DIR/runner.py --config $CONFIG" >/dev/null 2>&1 || true
+pkill -f "$BASE_DIR/ai_publisher.py --config $CONFIG" >/dev/null 2>&1 || true
 sleep 1
 
-if ! pgrep -f "/Users/c/Library/LaAurora/newsroom/daemon.sh" >/dev/null 2>&1; then
+if ! pgrep -f "$BASE_DIR/daemon.sh" >/dev/null 2>&1; then
   nohup /bin/bash "$BASE_DIR/daemon.sh" >> "$LOG_DIR/daemon.bootstrap.out.log" 2>> "$LOG_DIR/daemon.bootstrap.err.log" &
   echo "[bootstrap] daemon iniciado."
 else

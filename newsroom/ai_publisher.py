@@ -16,7 +16,7 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 
-USER_AGENT = "MetropolisBot/2.0 (+https://metropolis.local)"
+USER_AGENT = "MetropolisBot/2.0 (+https://example.com)"
 MASTER_EDITORIAL_PROMPT = """
 You are the editorial core of Metropolis, an English-language digital newspaper.
 Global non-negotiable rules:
@@ -31,7 +31,7 @@ Global non-negotiable rules:
 
 DEFAULT_CONFIG = {
   "lmstudio": {
-    "base_url": "http://10.211.0.240:1234/v1",
+    "base_url": "http://127.0.0.1:1234/v1",
     "timeout_sec": 120
   },
   "models": {

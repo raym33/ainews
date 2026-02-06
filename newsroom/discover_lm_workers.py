@@ -10,7 +10,7 @@ import urllib.request
 
 def parse_args():
   p = argparse.ArgumentParser(description="Descubre workers LM Studio en red local.")
-  p.add_argument("--cidr", default="", help="Rango CIDR a escanear, ej: 10.211.0.0/24")
+  p.add_argument("--cidr", default="", help="Rango CIDR a escanear, ej: 10.0.0.0/24")
   p.add_argument("--ips", default="", help="Lista IP separada por comas")
   p.add_argument("--port", type=int, default=1234)
   p.add_argument("--timeout", type=float, default=0.7)
@@ -46,7 +46,7 @@ def list_targets(args):
 
 def fetch_models(ip, port, timeout):
   url = f"http://{ip}:{port}/v1/models"
-  req = urllib.request.Request(url, headers={"User-Agent": "LaAuroraDiscover/1.0"})
+  req = urllib.request.Request(url, headers={"User-Agent": "MetropolisDiscover/1.0"})
   try:
     with urllib.request.urlopen(req, timeout=timeout) as resp:
       data = json.loads(resp.read().decode("utf-8", "ignore"))

@@ -14,7 +14,7 @@ ALERT_LOG_PATH = os.path.join(LOG_DIR, "health.alerts.log")
 ALERT_STATE_PATH = os.path.join(LOG_DIR, "health.alerts.state.json")
 CONFIG_PATH = os.path.join(BASE_DIR, "config.json")
 LOCK_PATH = os.path.join(BASE_DIR, ".runner.lock")
-FEED_PATH = "/Users/c/Library/LaAurora/web/data/articles.json"
+FEED_PATH = os.path.abspath(os.path.join(BASE_DIR, "..", "web", "data", "articles.json"))
 QUARANTINE_PATH = os.path.join(LOG_DIR, "route_quarantine.json")
 PUBLISHER_LABEL = "com.la-aurora.publisher"
 

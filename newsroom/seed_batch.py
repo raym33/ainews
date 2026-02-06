@@ -6,11 +6,11 @@ import subprocess
 import sys
 import time
 
-BASE_DIR = "/Users/c/Library/LaAurora/newsroom"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(BASE_DIR, "config.json")
 STATE = os.path.join(BASE_DIR, ".state.json")
 TOPICS = os.path.join(BASE_DIR, "topics.json")
-FEED = "/Users/c/Library/LaAurora/web/data/articles.json"
+FEED = os.path.abspath(os.path.join(BASE_DIR, "..", "web", "data", "articles.json"))
 TARGET = 10
 MAX_ATTEMPTS = 35
 MIN_WORDS = 1200
@@ -55,13 +55,20 @@ def choose_topic(topics):
 
 
 def stop_publisher():
-  subprocess.run(["launchctl", "bootout", "gui/501/com.la-aurora.publisher"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+  uid = str(os.getuid())
+  subprocess.run(
+    ["launchctl", "bootout", f"gui/{uid}/com.la-aurora.publisher"],
+    stdout=subprocess.DEVNULL,
+    stderr=subprocess.DEVNULL
+  )
 
 
 def start_publisher():
-  subprocess.run(["launchctl", "bootstrap", "gui/501", "/Users/c/Library/LaunchAgents/com.la-aurora.publisher.plist"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-  subprocess.run(["launchctl", "enable", "gui/501/com.la-aurora.publisher"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-  subprocess.run(["launchctl", "kickstart", "-k", "gui/501/com.la-aurora.publisher"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+  uid = str(os.getuid())
+  plist = os.path.join(os.path.expanduser("~"), "Library", "LaunchAgents", "com.la-aurora.publisher.plist")
+  subprocess.run(["launchctl", "bootstrap", f"gui/{uid}", plist], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+  subprocess.run(["launchctl", "enable", f"gui/{uid}/com.la-aurora.publisher"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+  subprocess.run(["launchctl", "kickstart", "-k", f"gui/{uid}/com.la-aurora.publisher"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
 def run_once(topic, region):

@@ -7,7 +7,7 @@
     <key>ProgramArguments</key>
     <array>
       <string>/bin/bash</string>
-      <string>/Users/c/Library/LaAurora/newsroom/github_hourly_sync.sh</string>
+      <string>__PROJECT_ROOT__/newsroom/github_hourly_sync.sh</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
@@ -16,8 +16,8 @@
     <key>KeepAlive</key>
     <false/>
     <key>StandardOutPath</key>
-    <string>/Users/c/Library/LaAurora/newsroom/logs/github.sync.out.log</string>
+    <string>__PROJECT_ROOT__/newsroom/logs/github.sync.out.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/c/Library/LaAurora/newsroom/logs/github.sync.err.log</string>
+    <string>__PROJECT_ROOT__/newsroom/logs/github.sync.err.log</string>
   </dict>
 </plist>

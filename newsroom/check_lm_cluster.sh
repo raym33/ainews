@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CONFIG="${1:-/Users/c/Library/LaAurora/newsroom/config.json}"
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG="${1:-$BASE_DIR/config.json}"
 
 if [[ ! -f "$CONFIG" ]]; then
   echo "ERROR: no existe config: $CONFIG" >&2
@@ -32,7 +33,7 @@ for role in ["chief", "research", "fact", "tagger", "embedding"]:
     continue
   url = f"{base}/models"
   try:
-    req = urllib.request.Request(url, headers={"User-Agent": "LaAuroraClusterCheck/1.0"})
+    req = urllib.request.Request(url, headers={"User-Agent": "MetropolisClusterCheck/1.0"})
     with urllib.request.urlopen(req, timeout=4) as resp:
       data = json.loads(resp.read().decode("utf-8", "ignore"))
     ids = [x.get("id") for x in data.get("data", []) if isinstance(x, dict)]

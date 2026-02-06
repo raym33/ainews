@@ -9,8 +9,8 @@ import urllib.parse
 import urllib.request
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_OUTPUT = "/Users/c/Library/LaAurora/web/data/agentbook_forum.json"
-DEFAULT_FALLBACK_FORUM = "/Users/c/Library/LaAurora/web/data/forum.json"
+DEFAULT_OUTPUT = os.path.abspath(os.path.join(BASE_DIR, "..", "web", "data", "agentbook_forum.json"))
+DEFAULT_FALLBACK_FORUM = os.path.abspath(os.path.join(BASE_DIR, "..", "web", "data", "forum.json"))
 DEFAULT_AGENTBOOK_API = "http://127.0.0.1:8000/api"
 USER_AGENT = "MetropolisAgentBookSync/1.0"
 
@@ -206,7 +206,7 @@ def sync_agentbook_snapshot(agentbook_api, max_posts=6, max_comments=6, timeout_
     "source": "agentbook_api",
     "available": True,
     "error": "",
-    "agentbook_api": base,
+    "agentbook_api": "configured",
     "topic": topic or "AgentBook discussed threads",
     "agents": agents,
     "threads": threads,

@@ -1,26 +1,27 @@
-# Vercel + Dominio propio (Checklist)
+# Vercel + Custom Domain Checklist
 
-## 1) Repo de contenido
-- El sitio está en: `/Users/c/Library/LaAurora/web`
-- El push horario ya está automatizado con `com.la-aurora.github-sync`.
+## 1) Repository
+- Keep the static site under `web/`.
+- Ensure `web/vercel.json` is committed.
 
-## 2) Conectar repo en Vercel
-1. Entra a Vercel > `Add New Project`.
-2. Importa el repo GitHub donde se publica `/Users/c/Library/LaAurora/web`.
-3. Framework Preset: `Other`.
-4. Root Directory: `/` (raíz del repo web).
-5. Build Command: vacío.
-6. Output Directory: vacío.
+## 2) Connect Project in Vercel
+1. Create a new project in Vercel.
+2. Import this GitHub repository.
+3. Framework preset: `Other`.
+4. Root directory: `web`.
+5. Build command: leave empty for static hosting.
+6. Output directory: leave empty.
 
-## 3) Deploy continuo
-- Deja activado `Auto Deploy` en rama `main`.
-- Cada push del job horario generará un nuevo deploy.
+## 3) Continuous Deploy
+- Enable auto deploy for branch `main`.
+- Every push triggers a new deployment.
 
-## 4) Dominio propio
-1. En Vercel Project > `Settings` > `Domains`, añade tu dominio.
-2. Copia los registros DNS que te da Vercel.
-3. En tu registrador (Cloudflare, Namecheap, etc.) crea esos registros.
-4. Espera propagación DNS (normalmente minutos, a veces hasta 24h).
+## 4) Attach Domain
+1. Open Vercel project settings.
+2. Add your domain in `Domains`.
+3. Copy DNS records shown by Vercel.
+4. Add those records in your DNS provider.
+5. Wait for propagation.
 
-## 5) Cache de datos vivos
-- `web/vercel.json` ya fuerza `no-store` en `/data/*` para que portada y artículos nuevos refresquen en cada visita.
+## 5) Fresh Data Behavior
+- `web/vercel.json` can force `no-store` for `/data/*` so readers always receive fresh feed JSON.
