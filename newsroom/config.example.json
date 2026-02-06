@@ -1,0 +1,70 @@
+{
+  "lmstudio": {
+    "base_url": "http://10.211.0.240:1234/v1",
+    "timeout_sec": 90
+  },
+  "models": {
+    "chief": "openai/gpt-oss-20b",
+    "research": "openai/gpt-oss-20b",
+    "fact": "openai/gpt-oss-20b",
+    "tagger": "openai/gpt-oss-20b",
+    "embedding": ""
+  },
+  "routes": {
+    "chief": {
+      "base_url": "http://10.211.0.240:1234/v1",
+      "model": "openai/gpt-oss-20b",
+      "timeout_sec": 90
+    },
+    "research": {
+      "base_url": "http://10.211.0.240:1234/v1",
+      "model": "openai/gpt-oss-20b",
+      "timeout_sec": 90
+    },
+    "fact": {
+      "base_url": "http://192.168.100.50:1234/v1",
+      "model": "mistralai/ministral-3-14b-reasoning",
+      "timeout_sec": 60
+    },
+    "tagger": {
+      "base_url": "http://10.211.0.240:1234/v1",
+      "model": "openai/gpt-oss-20b",
+      "timeout_sec": 90
+    }
+  },
+  "search": {
+    "provider": "r_cli_local",
+    "args": {
+      "num_results": 8,
+      "lang": "en"
+    },
+    "preferred_domains": [
+      "abc.es",
+      "elmundo.es",
+      "elpais.com",
+      "lavanguardia.com",
+      "expansion.com",
+      "xataka.com"
+    ]
+  },
+  "pipeline_max_sec": 260,
+  "quarantine_seconds": 900,
+  "quarantine_file": "/Users/c/Library/LaAurora/newsroom/logs/route_quarantine.json",
+  "rss_feeds": {
+    "spain": [
+      "https://www.abc.es/rss/feeds/abcPortada.xml",
+      "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada",
+      "https://e00-elmundo.uecdn.es/elmundo/rss/portada.xml",
+      "https://www.rtve.es/api/noticias.rss",
+      "https://www.europapress.es/rss/rss.aspx",
+      "https://www.lavanguardia.com/rss/home.xml"
+    ],
+    "world": [
+      "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "https://www.reuters.com/world/rss",
+      "https://www.aljazeera.com/xml/rss/all.xml",
+      "https://apnews.com/apf-topnews?format=rss"
+    ]
+  }
+}

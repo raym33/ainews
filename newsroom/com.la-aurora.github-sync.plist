@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.la-aurora.github-sync</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/bash</string>
+      <string>/Users/c/Library/LaAurora/newsroom/github_hourly_sync.sh</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StartInterval</key>
+    <integer>3600</integer>
+    <key>KeepAlive</key>
+    <false/>
+    <key>StandardOutPath</key>
+    <string>/Users/c/Library/LaAurora/newsroom/logs/github.sync.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/c/Library/LaAurora/newsroom/logs/github.sync.err.log</string>
+  </dict>
+</plist>

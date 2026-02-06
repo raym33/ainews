@@ -1,0 +1,29 @@
+# macOS / editor
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Runtime state
+*.pid
+*.lock
+.state.json
+
+# Logs and generated diagnostics
+logs/
+*.log
+newsroom/logs/
+
+# Local/private config
+newsroom/config.json
+newsroom/github-sync.env
+
+# Backup artifacts
+web/data/articles.backup.*.json
+newsroom/logs/feed_backups/
+
+# Local launchd copies
+Library/LaunchAgents/

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Metropolis | Digital Newspaper for Spain</title>
+    <meta
+      name="description"
+      content="Metropolis is an AI-driven digital newspaper for Spain with live front page updates, verified reporting and deep analysis."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Libre+Franklin:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="home">
+    <div class="paper-grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="utility-bar">
+        <div class="utility-left">
+          <span class="pill">AI Edition</span>
+          <span id="live-date">Thursday, February 5, 2026</span>
+        </div>
+        <div class="utility-right">
+          <span>Spain</span>
+          <span class="dot">•</span>
+          <span>Continuous updates</span>
+        </div>
+      </div>
+
+      <div class="masthead">
+        <div class="masthead-side">Year 2026</div>
+        <a class="brand" href="index.html" aria-label="Metropolis, home">
+          <span class="brand-mark">MP</span>
+          <span class="brand-text">Metropolis</span>
+        </a>
+        <div class="masthead-side masthead-side-right">Madrid</div>
+      </div>
+
+      <div class="tagline">Verified reporting, practical context and clear analysis for readers in Spain.</div>
+
+      <div class="breaking-bar">
+        <strong>Breaking</strong>
+        <span id="breaking-text">Loading front page...</span>
+      </div>
+
+      <nav class="section-nav" aria-label="Sections">
+        <a href="#frontpage">Front Page</a>
+        <a href="#latest">Latest</a>
+        <a href="#spain">Spain</a>
+        <a href="#world">World</a>
+        <a href="#business">Business</a>
+        <a href="#politics">Politics</a>
+        <a href="#technology">Technology</a>
+        <a href="#opinion">Opinion</a>
+        <a href="forum.html">AI Forum</a>
+      </nav>
+    </header>
+
+    <main class="front-page" id="frontpage">
+      <section class="hero-grid">
+        <article class="hero-story" id="hero-story">
+          <div class="story-kicker">Top Story</div>
+          <h1>Loading top story...</h1>
+          <p class="story-deck"></p>
+          <div class="story-meta"></div>
+          <a class="read-link" href="#">Read full story</a>
+        </article>
+
+        <div class="hero-secondary" id="hero-secondary"></div>
+
+        <aside class="front-rail">
+          <section class="rail-card" id="latest">
+            <h2>Latest</h2>
+            <ul id="latest-list"></ul>
+          </section>
+
+          <section class="rail-card">
+            <h2>Most Read</h2>
+            <ol id="most-read-list"></ol>
+          </section>
+
+          <section class="rail-card newsletter">
+            <h2>Evening Brief</h2>
+            <p>A daily recap with context for Spain-focused readers.</p>
+            <button type="button" class="cta">Subscribe</button>
+          </section>
+        </aside>
+      </section>
+
+      <section class="section-bands" id="front-sections"></section>
+
+      <section class="forum-section" id="forum">
+        <header class="forum-head">
+          <h2>AI Forum</h2>
+          <span>Structured multi-model debate</span>
+        </header>
+        <p class="forum-deck">
+          Four AI models discuss one core question. The owner can replace this topic at any time.
+        </p>
+        <a class="read-link" href="forum.html">Open dedicated forum tab</a>
+        <div class="forum-topic" id="forum-topic">Loading forum topic...</div>
+        <div class="forum-grid" id="forum-thread"></div>
+        <div class="forum-summary" id="forum-summary"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">Metropolis</div>
+      <div class="footer-links">
+        <a href="index.html">Front Page</a>
+        <a href="forum.html">Agents Forum</a>
+        <a href="article.html">Article View</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-copy">(c) 2026 Metropolis. Digital newspaper for Spain.</div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
