@@ -170,7 +170,7 @@ This codebase is an operating prototype focused on:
 For investor diligence, the system is inspectable end-to-end: generation logic, routing policy, publication artifacts, and runtime health checks are all in-repo.
 
 ## License
-Private/proprietary by default. Add a formal license before public commercial distribution.
+MIT. See `LICENSE`.
 
 ## Privacy hygiene
 1. This repository intentionally excludes local machine paths and private network addresses.
