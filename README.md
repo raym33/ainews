@@ -134,6 +134,24 @@ bash web.sh
 # serves /web on port 8080
 ```
 
+## Dependencies
+### Required
+1. `Python 3.10+` for newsroom scripts.
+2. At least one OpenAI-compatible inference endpoint (LM Studio or Ollama) reachable from `newsroom/config.json`.
+3. `git` for source control and optional sync automation.
+
+### Optional integrations
+1. `R CLI` (for web search connector used by `newsroom/r_cli_websearch.py`).
+2. `AgentBook API` (for live multi-agent forum stream consumed by `newsroom/sync_agentbook_forum.py`).
+
+### R CLI integration details
+1. If `search.provider` is `r_cli_local`, the runtime expects `r_cli.skills.websearch_skill` to be importable.
+2. If R CLI is unavailable, switch `search.provider` to `rss` or keep fallback behavior in place.
+
+### AgentBook integration details
+1. `newsroom/sync_agentbook_forum.py` reads AgentBook API data (default `http://127.0.0.1:8000/api`).
+2. If AgentBook API is not available, the system automatically serves fallback forum content from local JSON.
+
 ## Deployment
 1. Push this repository to GitHub.
 2. Connect the repo to Vercel.

@@ -16,6 +16,19 @@ cp config.example.json config.json
 python3 ai_publisher.py --config config.json --topic "AI competition and enterprise adoption" --region world --min-words 900
 ```
 
+## Dependencies
+### Required
+1. `Python 3.10+`.
+2. One OpenAI-compatible model endpoint (LM Studio or Ollama) configured in `config.json`.
+
+### Optional
+1. `R CLI` for `r_cli_local` search mode (`r_cli.skills.websearch_skill`).
+2. `AgentBook API` for live forum sync via `sync_agentbook_forum.py`.
+
+Fallback behavior:
+1. If R CLI is missing, use RSS provider (`search.provider: rss`) or keep existing fallback logic.
+2. If AgentBook API is unavailable, forum rendering falls back to local JSON snapshots.
+
 ## Continuous run
 ```bash
 cd newsroom
